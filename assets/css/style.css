@@ -1,0 +1,165 @@
+/* Styles généraux */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Mode sombre */
+.dark-mode {
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #1a1a1a, #333333);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00ffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff00ff;
+}
+
+/* Hero section */
+.hero {
+    padding: 100px 20px;
+    background: url('background.jpg') no-repeat center center/cover;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #00ffff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    padding: 20px;
+    margin-top: 50px;
+    border-top: 2px solid #00ffff;
+}
+
+footer a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ff00ff;
+}
+
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#scrollToTop:hover {
+    background: #ff4500;
+    transform: scale(1.1);
+}
+
+#scrollToTop {
+    display: block !important;
+}
+
+#searchBar {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Target all paragraphs on index.html */
+body#index p {
+    color: black;
+}
+
+body#lyrics main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh; /* Ensures full height */
+    padding: 20px;
+}
+
+.site-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ffff;
+    margin-right: auto; /* Pushes the name to the left */
+}
+
+/* Increase font size */
+.song h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #00ffff;
+    text-align: center;
+}
+
+/* Center the lyrics container */
+#lyricsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Center and properly format lyrics */
+.song pre {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+    white-space: pre-wrap; /* Ensures lyrics wrap properly */
+    width: 100%;
+}
