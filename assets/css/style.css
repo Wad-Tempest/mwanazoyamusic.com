@@ -20,8 +20,21 @@ header {
     background: linear-gradient(90deg, #1a1a1a, #333333);
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    position: relative;
 }
 
+/* Menu Burger */
+.burger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+}
+
+/* Navigation */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -46,7 +59,37 @@ nav ul li a:hover {
     color: #ff00ff;
 }
 
-/* Hero section */
+/* Responsive Design - Mobile */
+@media screen and (max-width: 768px) {
+    .burger {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        display: block;
+        padding: 10px;
+    }
+}
+
+/* Section Hero */
 .hero {
     padding: 100px 20px;
     background: url('background.jpg') no-repeat center center/cover;
@@ -60,6 +103,17 @@ nav ul li a:hover {
 
 .hero p {
     font-size: 1.2rem;
+    color: #ffffff;
+}
+
+/* Mode sombre pour la section Hero */
+.dark-mode .hero {
+    background: url('background-dark.jpg') no-repeat center center/cover;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+.dark-mode .hero h2,
+.dark-mode .hero p {
     color: #ffffff;
 }
 
@@ -80,6 +134,7 @@ footer a:hover {
     color: #ff00ff;
 }
 
+/* Bouton Scroll to Top */
 #scrollToTop {
     position: fixed;
     bottom: 20px;
@@ -104,6 +159,7 @@ footer a:hover {
     display: block !important;
 }
 
+/* Barre de recherche */
 #searchBar {
     width: 100%;
     max-width: 400px;
@@ -114,37 +170,24 @@ footer a:hover {
     border-radius: 5px;
 }
 
-/* Target all paragraphs on index.html */
+/* Mode sombre pour la barre de recherche */
+.dark-mode #searchBar {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+/* Paragraphes spécifiques à la page d'accueil */
 body#index p {
     color: black;
 }
 
-body#lyrics main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 100vh; /* Ensures full height */
-    padding: 20px;
+/* Mode sombre pour les paragraphes de la page d'accueil */
+body#index.dark-mode p {
+    color: white;
 }
 
-.site-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #00ffff;
-    margin-right: auto; /* Pushes the name to the left */
-}
-
-/* Increase font size */
-.song h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #00ffff;
-    text-align: center;
-}
-
-/* Center the lyrics container */
+/* Conteneur des paroles */
 #lyricsContainer {
     display: flex;
     flex-direction: column;
@@ -155,11 +198,29 @@ body#lyrics main {
     padding: 20px;
 }
 
-/* Center and properly format lyrics */
+/* Titres des chansons */
+.song h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #00ffff;
+    text-align: center;
+}
+
+/* Mode sombre pour les titres des chansons */
+.dark-mode .song h2 {
+    color: #00ffff;
+}
+
+/* Paroles des chansons */
 .song pre {
     font-size: 1.2rem;
     line-height: 1.6;
     text-align: center;
-    white-space: pre-wrap; /* Ensures lyrics wrap properly */
+    white-space: pre-wrap;
     width: 100%;
+}
+
+/* Mode sombre pour les paroles des chansons */
+.dark-mode .song pre {
+    color: #ffffff;
 }

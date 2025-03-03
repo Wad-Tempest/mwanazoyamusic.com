@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +9,18 @@
 <body>
     <header>
         <nav>
+            <div class="burger">&#9776;</div> <!-- Icône menu burger -->
             <ul>
                 <li class="site-name">Mwana Azoya Music</li>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="music.html">Musique</a></li>
-                <li><a href="lyrics.html">Lyrics</a></li>
+                <li><a href="lyrics.html">Paroles</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <button id="theme-toggle">Dark Mode</button>
-    </header>
-
+        <button id="theme-toggle">Mode Sombre</button>
+    </header>    
     <main>
         <h2>Contactez-nous</h2>
 
@@ -29,13 +29,17 @@
             <img src="assets/images/mobile-2563782_640.jpg" alt="Bannière Contact">
         </div>
 
+        <!-- Formulaire de contact -->
         <form id="contactForm">
-            <label for="name">Nom:</label>
-            <input type="text" id="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" required></textarea>
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+            
             <button type="submit">Envoyer</button>
         </form>
 
@@ -58,16 +62,24 @@
             form.addEventListener("submit", function (event) {
                 event.preventDefault(); // Empêche le rechargement de la page
 
-                let name = document.getElementById("name").value;
-                let email = document.getElementById("email").value;
-                let message = document.getElementById("message").value;
+                let formData = new FormData(form);
 
-                if (name && email && message) {
-                    alert("✅ Merci, " + name + "! Votre message a été envoyé. Nous reviendrons vers vous dès que possible.");
-                    form.reset(); // Réinitialise le formulaire après l'envoi
-                } else {
-                    alert("❌ Veuillez remplir tous les champs.");
-                }
+                fetch("https://formspree.io/f/xnnjevva", {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        alert("✅ Merci! Votre message a été envoyé. Nous reviendrons vers vous dès que possible.");
+                        form.reset(); // Réinitialise le formulaire après l'envoi
+                    } else {
+                        alert("❌ Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.");
+                    }
+                }).catch(error => {
+                    alert("❌ Une erreur est survenue lors de l'envoi de votre message. Veuillez vérifier votre connexion et réessayer.");
+                });
             });
         });
     </script>

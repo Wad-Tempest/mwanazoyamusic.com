@@ -1,11 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () { 
+    // 🍔 Menu Burger - Fonctionne sur toutes les pages
+    let burger = document.querySelector(".burger");
+    let navMenu = document.querySelector("nav ul");
+
+    if (burger && navMenu) {
+        burger.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
+        });
+
+        console.log("✅ Menu burger activé !");
+    } else {
+        console.error("❌ ERREUR : Élément .burger ou nav ul introuvable !");
+    }
+
     console.log("✅ Script chargé correctement !");
 
     // 🎨 Mode sombre / clair (Light Mode activé par défaut)
     let themeToggle = document.getElementById("theme-toggle");
 
     if (themeToggle) {
-        // Vérifier si l'utilisateur a déjà un mode enregistré
         let darkModeEnabled = localStorage.getItem("dark-mode") === "enabled";
 
         if (darkModeEnabled) {
@@ -16,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
             themeToggle.textContent = "Dark Mode";
         }
 
-        // Changer le mode au clic et sauvegarder le choix
         themeToggle.addEventListener("click", () => {
             document.body.classList.toggle("dark-mode");
             let isDarkMode = document.body.classList.contains("dark-mode");
